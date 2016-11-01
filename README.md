@@ -80,3 +80,47 @@ android:pivotY="50%"
 android:duration="1500"
 />
 ```
+###3 Implement Tween Animation Through Animation Resource Files
+MainActivity.java
+```
+private ImageView mImageView;
+private Animation mRotateAnim;
+
+@Override
+protected void onCreate(Bundle savedInstanceState){
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_main)
+  mImageView = (ImageView)findViewById(R.id.volleyball);
+}
+
+....
+public void scaleAnimation(View view){
+  mScaleAnim = AnimationUtils.loadAnimation)this,R.anim.scale_anim);
+  
+}
+
+```
+
+res/anim/alpha_anim.xml
+```
+<alpha
+android:duration="2000"
+android:fromAlpha="1.0"
+android:toAlpha="0.0"
+/>
+```
+
+Note these animation is not permanent, it will return to its original state(solve this next lecture)
+
+###4 Animation Listener
+####onAnimationEnd
+- notifies the end of the animation.
+- this callback is not invoked for animations with repeat count set to infinite
+
+####onAnimationRepeat
+
+
+Ex
+```
+
+```
