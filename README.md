@@ -122,5 +122,6 @@ Note these animation is not permanent, it will return to its original state(solv
 
 Ex
 ```
-
+public class MainActivity extends ActionBarActivity implements Animation.AnimationListener{
+}
 ```
