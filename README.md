@@ -125,3 +125,48 @@ Ex
 public class MainActivity extends ActionBarActivity implements Animation.AnimationListener{
 }
 ```
+
+
+
+
+
+##5. Applying Animations to Commmon Apps Scenario
+###1 Activity Transition
+exp, overridePendingTransition  
+
+
+MainActivity.java
+```
+public void slideTransition(View view){
+  startActivity(new Intent(MainActivity.this,SecondActivity.class);
+  overridePendingTransition(R.anim.activity_open_translate,R.anim.activity_close_scale);
+}
+```
+
+SecondActivity.java
+```
+//go back to first Activity if we press `back` button
+@Override
+protected void onPause(){
+  super.onPause()
+  overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+  //first->ingoing activity  //second->outgoing activity
+}
+```
+
+%p->means relative to parent.Ex: activity_push_up_out.xml,(typically, out animation xml needs to add p, like 100%p)
+```
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk.res.android">    
+<translate android:toYDelta="-100%p" android:fromYDelta="0%p" android:duraion..../>
+<alpha android:toAlpha="0.5" android:fromAlpha="1.0" android:duraion..../>
+</set>
+```
+activity_push_up_in.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk.res.android">    
+<translate android:toYDelta="0%" android:fromYDelta="100%" android:duraion..../>
+<alpha android:toAlpha="1.0" android:fromAlpha="0.0" android:duraion..../>
+</set>
+```
